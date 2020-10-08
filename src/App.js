@@ -9,7 +9,6 @@ import ArticlesList from './pages/ArticlesList';
 import ArticlePage from './pages/ArticlePage';
 import NavBar from './NavBar';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
