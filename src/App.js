@@ -9,6 +9,7 @@ import ArticlesListPage from './pages/ArticlesListPage';
 import ArticlePage from './pages/ArticlePage';
 import NavBar from './NavBar';
 import './App.css';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/about" component={AboutPage}/>
           <Route path="/articles-list" component={ArticlesListPage}/>
           <Route path="/article/:name" component={ArticlePage}/>
+          <Route component={NotFoundPage}/>
         </div>
       </div>
     </Router>
