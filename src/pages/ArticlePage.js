@@ -10,8 +10,8 @@ const ArticlePage = ({match}) => {
   const [articleInfo, setArticleInfo] = useState({upvotes: 0, comments: []});
 
   useEffect(() => {
-    setArticleInfo({upvotes: 3});
-  }, []);
+    setArticleInfo({upvotes: Math.ceil(Math.random() * 10)});
+  }, [name]);
 
   if (!article) return <NotFoundPage/>;
 
@@ -20,7 +20,8 @@ const ArticlePage = ({match}) => {
   return (
     <>
       <h1>{article.title}</h1>
-      <p>This post has been upvoted {articleInfo.upvotes} times.</p>
+      <p>This post has been upvoted {articleInfo.upvotes} {articleInfo.upvotes >
+      1 ? 'times' : 'time'}.</p>
       {article.content.map((paragraph, key) => (
         <p key={key}>{paragraph}</p>
       ))}
