@@ -6,7 +6,7 @@ const ArticlesList = () => (
   <>
     <h1>Articles</h1>
     {articleContent.map(article => (
-      <Link to={'/article/' + article.name}>
+      <Link to={`/article/${article.title}`}>
         <h3>{article.title}</h3>
       </Link>
     ))}
