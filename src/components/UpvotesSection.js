@@ -6,14 +6,16 @@ const UpvotesSection = ({articleName, upvotes, setArticleInfo}) => {
       method: 'post',
     });
     const body = await result.json();
-    await setArticleInfo(body);
-  }
+    setArticleInfo(body);
+  };
 
   return (
-    <div id="upvotes-section">
-      <button onClick={() => upvoteArticle()}>Add Upvote</button>
-      <p>This post has been upvoted {upvotes} times.</p>
-    </div>
+    <>
+      <div id="upvotes-section">
+        <button onClick={() => upvoteArticle()}>Add Upvote</button>
+        <p>This post has been upvoted {upvotes} times.</p>
+      </div>
+    </>
   );
 };
 
