@@ -4,6 +4,7 @@ import ArticlesList from '../components/ArticlesList';
 import NotFoundPage from './NotFoundPage';
 import CommentsList from '../components/CommentsList';
 import UpvotesSection from '../components/UpvotesSection';
+import AddCommentForm from '../components/AddCommentForm';
 
 const ArticlePage = ({match}) => {
   const name = match.params.name;
@@ -16,7 +17,7 @@ const ArticlePage = ({match}) => {
       const result = await fetch(`/api/articles/${name}`);
       const body = await result.json();
       setArticleInfo(body);
-    }
+    };
     fetchData();
   }, [name]);
 
@@ -27,15 +28,17 @@ const ArticlePage = ({match}) => {
   return (
     <>
       <h1>{article.title}</h1>
-      <UpvotesSection articleName={name} upvotes={articleInfo.upvotes} setArticleInfo={setArticleInfo} />
+      <UpvotesSection articleName={name} upvotes={articleInfo.upvotes}
+                      setArticleInfo={setArticleInfo}/>
       {article.content.map((paragraph, key) => (
         <p key={key}>{paragraph}</p>
       ))}
       <CommentsList comments={articleInfo.comments}/>
+      <AddCommentForm articleName={name} setArticleInfo={setArticleInfo}/>
       <h3>Other Articles:</h3>
       <ArticlesList articles={otherArticles}/>
     </>
   );
-}
+};
 
 export default ArticlePage;
